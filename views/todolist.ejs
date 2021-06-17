@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/todo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poller+One&display=swap" rel="stylesheet">
+    <title>ToDoList</title>
+</head>
+<body>
+    <div class="header box">
+        <h1> <%= theDay %> </h1>
+    </div>
+<div class="items box">
+        <% for (let i = 0; i < newdeals.length; i++) { %>
+        <div class="item">
+            <input type="checkbox">
+            <p><%= newdeals[i] %></p>
+        </div>
+        <% } %>
+          <form class="form box" action="/" method="POST">
+        <input type="text" name="newDeal" placeholder="New Deal For Today">
+        <button class="button" type="submit">+</button>
+    </div>
+    </form>
+</body>
+</html>
