@@ -1,0 +1,88 @@
+html {
+    font-family: 'Poller One', cursive;
+    background-color: #2b4162;
+    background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
+    color:#FFE81F;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    padding: 5px;
+}
+h1 {
+    font-size: 22px;
+    font-weight: 800;
+  font-stretch: expanded;
+padding-bottom: 15px;
+}
+.box  {
+    max-width: 350px;
+    text-align: center;
+    background-color: #000000;
+    margin: 50px auto;
+    padding: 10px 10px 0 10px;
+}
+form  {
+    background-color: transparent;
+}
+.item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    font-weight:500;
+}
+input[type="checkbox"] {
+    margin: 10px;
+    width: 20px;
+    height: 20px;
+    background:#FFE81F ;
+}
+input:checked {
+    background-color: #FFE81F; 
+}
+p {
+    margin: 0;
+    padding: 20px;
+}
+.item:last-child {
+    border-bottom: none;
+}
+input[type="text"] {
+    min-width: 150px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 200;
+    position: relative;
+    top: -20px;
+    color: #FFE81F;
+  
+}
+input[type="text"]:focus {
+    outline: none;
+}
+.button {
+    width:50px;
+    min-height: 50px;
+    border-radius: 50%;
+    background-color: black;
+    border-color: transparent;
+    position: relative;
+    top: -20px;
+  margin-left: 20px;
+  font-size: 35px;
+  font-weight: 700;
+  color: #FFE81F  
+}
+.button:hover {
+    color: black;
+    background-color:#FFE81F ;
+}
+input:checked+p {
+text-decoration: line-through;
+}
+
