@@ -2,10 +2,11 @@
  const express = require("express");
 const parser = require("body-parser");
  const app = express();
+ const modulesFile = require(__dirname + "/modules.js")
  app.use(parser.urlencoded({extended: true}));
  app.use(express.static(__dirname));
 
-   var deals = [];
+var deals = [];
 var dealsWork = [];
 // app.set('views', __dirname);
 // app.engine('html', require('ejs').renderFile);
@@ -13,14 +14,7 @@ var dealsWork = [];
  app.set('view engine', 'ejs')
 
  app.get("/", function(req,res){
-  
-     var day = new Date();
-     const options = {
-         weekday: "long",
-         month: "long",
-         day: "numeric"
-     }
-     var today = day.toLocaleDateString("en-US", options);
+     let today = modulesFile.newDate();
 res.render("todolist", {theDay:today, newdeals:deals});
  })
  
@@ -30,8 +24,8 @@ res.render("todolist", {theDay:today, newdeals:deals});
  })
 
  app.post("/", function (request, response){
-     var newDeal = request.body.newDeal;
-     var button = request.body.btn;
+     let newDeal = request.body.newDeal;
+     let button = request.body.btn;
      if (button === "WorkList") {
         dealsWork.push(newDeal);
         response.redirect("/work")
@@ -39,7 +33,6 @@ res.render("todolist", {theDay:today, newdeals:deals});
      else {
              deals.push(newDeal);
     response.redirect("/") }
-    console.log(button);
  })
 
 
