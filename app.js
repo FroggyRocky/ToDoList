@@ -6,7 +6,7 @@ const parser = require("body-parser");
  app.use(express.static(__dirname));
 
    var deals = [];
-
+var dealsWork = [];
 // app.set('views', __dirname);
 // app.engine('html', require('ejs').renderFile);
 
@@ -22,15 +22,24 @@ const parser = require("body-parser");
      }
      var today = day.toLocaleDateString("en-US", options);
 res.render("todolist", {theDay:today, newdeals:deals});
+ })
+ 
 
-
+ app.get("/work", function(request, response){
+     response.render("todolist", {theDay:"WorkList", newdeals:dealsWork})
  })
 
  app.post("/", function (request, response){
-
-     var newDeal = request.body.newDeal
-     deals.push(newDeal);
-    response.redirect("/")
+     var newDeal = request.body.newDeal;
+     var button = request.body.btn;
+     if (button === "WorkList") {
+        dealsWork.push(newDeal);
+        response.redirect("/work")
+     }
+     else {
+             deals.push(newDeal);
+    response.redirect("/") }
+    console.log(button);
  })
 
 
