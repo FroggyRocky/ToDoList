@@ -95,15 +95,16 @@ console.log(foundItem);
      })
 
     if(button === today) {
+        response.redirect("/"); 
 item.save();
-response.redirect("/"); 
+
     }
      else {
 listsCollection.findOne({name:button}, (err,foundList)=>{
-    
-foundList.items.push(item)
+foundList.items.push(item);
+response.redirect(`/${button}`);
 foundList.save();
-response.redirect(`/${button}`)
+
 });
     }
 
@@ -129,7 +130,6 @@ response.redirect(`/${button}`)
         });
         } else {
             listsCollection.findOneAndUpdate({name:list}, {$pull:{items:{_id:bodyCheckBox}}},(err,foundItem)=>{
-               
                res.redirect(`/${list}`)
             
             })
