@@ -67,9 +67,8 @@ res.render("todolist", {theDay:today, newdeals:itemsFound});
 const parameter = _.capitalize(req.params.param);
 
 listsCollection.findOne({name:parameter},(err,foundItem)=>{
- if(err) {
-     console.log(err);
- } if(!foundItem) {
+ 
+  if (!foundItem) {
   const list = new listsCollection({
     name:parameter, 
     items:defaultOptions 
@@ -86,7 +85,6 @@ console.log(foundItem);
 })
 
 }); 
-
  app.post("/", function (request, response){
      let newDeal = request.body.newDeal;
      let button = request.body.btn; 
