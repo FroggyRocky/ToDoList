@@ -95,8 +95,10 @@ console.log(foundItem);
      })
 
     if(button === today) {
-        response.redirect("/"); 
-item.save();
+       response.redirect("/");
+        item.save();  
+   ; 
+
 
     }
      else {
@@ -104,6 +106,8 @@ listsCollection.findOne({name:button}, (err,foundList)=>{
 foundList.items.push(item);
 response.redirect(`/${button}`);
 foundList.save();
+
+
 
 });
     }
