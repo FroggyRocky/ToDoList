@@ -9,7 +9,7 @@ const parser = require("body-parser");
  app.use(express.static(__dirname));
 let today = modulesFile.newDate();
  
-mongoose.connect("mongodb://localhost:27017/todolist", {userNewUrlParser:true})
+mongoose.connect("mongodb://localhost:27017/todolist", {useNewUrlParser:true})
 
 const itemsSchema = mongoose.Schema({
     name: {
